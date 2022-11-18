@@ -156,6 +156,8 @@ RUN apt-get update && apt-get install --no-install-recommends --no-install-sugge
     supervisor \
     gettext-base \
     dos2unix \
+    # for running some scripts as www-data inside container
+    sudo \
     # install php extensions
     # using mlocati/docker-php-extension-installer recomended by official php docker repo
     # @see https://github.com/docker-library/docs/blob/master/php/README.md#php-core-extensions
@@ -232,11 +234,12 @@ RUN composer install --no-scripts --no-autoloader --ansi --no-interaction
 ##
 ## Npm Install And Node Build Tools (vite)
 ##
-ENV NODE_ENV="production"
+ENV NODE_ENV="development"
 COPY --chown=www-data:www-data ./package*.json ./
 RUN npm config list \
     # is better then `npm install` for production
     && npm ci || npm install
+ENV NODE_ENV="production"
 
 COPY --chown=www-data:www-data ./vite.config.js ./
 # didn't find to copy (without resources/view folder) in one COPY command without changing directory structure
@@ -262,7 +265,7 @@ COPY --chown=www-data:www-data ./app ./app
 ## Run build of frontend scaffolding
 ##
 RUN composer dump-autoload -o
-RUN npm run prod
+RUN npm run build
 
 ##
 ## Delete Files That Are Not Used In Production

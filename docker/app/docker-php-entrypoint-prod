@@ -17,7 +17,8 @@ chmod -R g+w /var/www/html/storage/
 
 # put here any production bash scripts if need
 php artisan storage:link
-sudo -u www-data -E php artisan migrate --seed --force
+# no database in this image
+# sudo -u www-data -E php artisan migrate --seed --force
 sudo -u www-data -E php artisan clear-compiled
 sudo -u www-data -E php artisan config:clear
 sudo -u www-data -E php artisan cache:clear

@@ -1,0 +1,8 @@
+version: "3.9"
+
+services:
+    app:
+        image: vasymus/gambling-test-app:latest
+        build:
+            context: .
+            dockerfile: docker/app/Dockerfile
