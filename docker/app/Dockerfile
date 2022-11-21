@@ -103,7 +103,9 @@ RUN set -x \
 RUN set -ex \
     && apt-get update && apt-get install --no-install-recommends --no-install-suggests -y \
     # need for node
-    gnupg2
+    gnupg2 \
+    zip \
+    unzip
 
 ###
 # <Copy from node image>
