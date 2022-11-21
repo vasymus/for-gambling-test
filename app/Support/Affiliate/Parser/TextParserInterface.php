@@ -1,6 +1,6 @@
 <?php
 
-namespace Support\Affiliate\Parser;
+namespace App\Support\Affiliate\Parser;
 
 use SplFileInfo;
 
@@ -9,7 +9,7 @@ interface TextParserInterface
     /**
      * @param \SplFileInfo $file
      *
-     * @return \DTOs\AffiliateDTO[]
+     * @return \App\DTOs\AffiliateDTO[]
      */
     public function parse(SplFileInfo $file): array;
 }

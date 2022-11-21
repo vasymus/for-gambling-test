@@ -1,11 +1,11 @@
 <?php
 
-namespace Support\Affiliate;
+namespace App\Support\Affiliate;
 
 use Illuminate\Support\ServiceProvider;
-use Support\Affiliate\Contract\AffiliateInterface;
-use Support\Affiliate\Finder\Finder;
-use Support\Affiliate\Parser\TextParser;
+use App\Support\Affiliate\Contract\AffiliateInterface;
+use App\Support\Affiliate\Finder\Finder;
+use App\Support\Affiliate\Parser\TextParser;
 
 class AffiliateServiceProvider extends ServiceProvider
 {

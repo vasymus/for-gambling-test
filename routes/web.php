@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    dd(\App\Support\Affiliate\Facade\AffiliateFacade::parse(
+        new SplFileInfo(storage_path('app/tests/affiliates.txt'))
+    ));
     return view('welcome');
 });

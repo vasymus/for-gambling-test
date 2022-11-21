@@ -1,17 +1,17 @@
 <?php
 
-namespace Support\Affiliate\Finder;
+namespace App\Support\Affiliate\Finder;
 
-use DTOs\GeoPositionDTO;
+use App\DTOs\GeoPositionDTO;
 
 class Finder implements FinderInterface
 {
     /**
-     * @param \DTOs\GeoPositionDTO $to
+     * @param \App\DTOs\GeoPositionDTO $to
      * @param int $limit
-     * @param \DTOs\AffiliateDTO[] $affiliates
+     * @param \App\DTOs\AffiliateDTO[] $affiliates
      *
-     * @return \DTOs\AffiliateDTO[]
+     * @return \App\DTOs\AffiliateDTO[]
      */
     public function getClosest(GeoPositionDTO $to, int $limit, array $affiliates): array
     {

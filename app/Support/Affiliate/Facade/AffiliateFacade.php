@@ -1,13 +1,13 @@
 <?php
 
-namespace Support\Affiliate\Facade;
+namespace App\Support\Affiliate\Facade;
 
 use Illuminate\Support\Facades\Facade;
-use Support\Affiliate\Contract\AffiliateInterface;
+use App\Support\Affiliate\Contract\AffiliateInterface;
 
 /**
- * @method static \DTOs\AffiliateDTO[] parse(\SplFileInfo $file)
- * @method static \DTOs\AffiliateDTO[] getClosest(\DTOs\GeoPositionDTO $to, int $limit, array $affiliates)
+ * @method static \App\DTOs\AffiliateDTO[] parse(\SplFileInfo $file)
+ * @method static \App\DTOs\AffiliateDTO[] getClosest(\App\DTOs\GeoPositionDTO $to, int $limit, array $affiliates)
  */
 class AffiliateFacade extends Facade
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Support\Affiliate\Contract;
+namespace App\Support\Affiliate\Contract;
 
-use DTOs\GeoPositionDTO;
+use App\DTOs\GeoPositionDTO;
 use SplFileInfo;
 
 interface AffiliateInterface
@@ -10,16 +10,16 @@ interface AffiliateInterface
     /**
      * @param \SplFileInfo $file
      *
-     * @return \DTOs\AffiliateDTO[]
+     * @return \App\DTOs\AffiliateDTO[]
      */
     public function parse(SplFileInfo $file): array;
 
     /**
-     * @param \DTOs\GeoPositionDTO $to
+     * @param \App\DTOs\GeoPositionDTO $to
      * @param int $limit
-     * @param \DTOs\AffiliateDTO[] $affiliates
+     * @param \App\DTOs\AffiliateDTO[] $affiliates
      *
-     * @return \DTOs\AffiliateDTO[]
+     * @return \App\DTOs\AffiliateDTO[]
      */
     public function getClosest(GeoPositionDTO $to, int $limit, array $affiliates): array;
 }
