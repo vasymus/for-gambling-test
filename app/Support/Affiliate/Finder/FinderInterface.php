@@ -8,10 +8,10 @@ interface FinderInterface
 {
     /**
      * @param \App\DTOs\GeoPositionDTO $to
-     * @param int $limit
+     * @param int $limitKm
      * @param \App\DTOs\AffiliateDTO[] $affiliates
      *
      * @return \App\DTOs\AffiliateDTO[]
      */
-    public function getClosest(GeoPositionDTO $to, int $limit, array $affiliates): array;
+    public function getClosest(GeoPositionDTO $to, int $limitKm, array $affiliates): array;
 }

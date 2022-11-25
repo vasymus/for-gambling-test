@@ -2,6 +2,7 @@
 
 namespace App\Support\Affiliate;
 
+use App\Support\Affiliate\DistanceCalculator\DistanceCalculator;
 use Illuminate\Support\ServiceProvider;
 use App\Support\Affiliate\Contract\AffiliateInterface;
 use App\Support\Affiliate\Finder\Finder;
@@ -19,7 +20,9 @@ class AffiliateServiceProvider extends ServiceProvider
         $this->app->bind(AffiliateInterface::class, function() {
             return new AffiliateService(
                 new TextParser(),
-                new Finder()
+                new Finder(
+                    new DistanceCalculator()
+                )
             );
         });
     }

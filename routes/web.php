@@ -1,5 +1,6 @@
 <?php
 
+use App\Support\Affiliate\Facade\AffiliateFacade;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    dd(\App\Support\Affiliate\Facade\AffiliateFacade::parse(
+    dump($affiliates = AffiliateFacade::parse(
         new SplFileInfo(storage_path('app/tests/affiliates.txt'))
     ));
+    $closest = AffiliateFacade::getClosest(
+        new \App\DTOs\GeoPositionDTO(
+            53.3340285,
+            -6.2535495
+        ),
+        100,
+        $affiliates
+    );
+    dd(collect($closest)->sortBy('id')->values()->all());
     return view('welcome');
 });
